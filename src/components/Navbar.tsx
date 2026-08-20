@@ -31,11 +31,12 @@ export default function Navbar() {
   const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (!href.startsWith("#")) return;
 
+    setIsOpen(false);
+
     const target = document.querySelector(href);
     if (!target) return;
 
     event.preventDefault();
-    setIsOpen(false);
     window.history.replaceState(null, "", href);
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   };
