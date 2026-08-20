@@ -28,6 +28,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    event.preventDefault();
+    setIsOpen(false);
+    window.history.replaceState(null, "", href);
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -64,6 +76,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(event) => handleNavClick(event, link.href)}
                 className="text-sm text-slate-300 hover:text-white transition-colors duration-200 relative group"
               >
                 {link.label}
@@ -89,6 +102,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center gap-3">
             <a
               href="#audit"
+              onClick={(event) => handleNavClick(event, "#audit")}
               className="text-xs font-semibold text-electric-400 hover:text-electric-300 transition-colors"
             >
               Free Audit
@@ -122,7 +136,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(event) => handleNavClick(event, link.href)}
                   className="block text-base text-slate-300 hover:text-white transition-colors py-2"
                 >
                   {link.label}
@@ -130,7 +144,7 @@ export default function Navbar() {
               ))}
               <a
                 href="#audit"
-                onClick={() => setIsOpen(false)}
+                onClick={(event) => handleNavClick(event, "#audit")}
                 className="cta-button text-sm w-full text-center mt-4 block"
               >
                 <span className="flex items-center justify-center gap-2">

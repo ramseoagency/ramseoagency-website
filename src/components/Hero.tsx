@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingUp, Search, BarChart3, Target, Activity, Rocket, CheckCircle } from "lucide-react";
+import { ArrowRight, TrendingUp, Rocket, CheckCircle } from "lucide-react";
+import ThreeDHero from "@/components/ThreeDHero";
 
 const trustPoints = [
   "Technical SEO",
@@ -10,17 +11,9 @@ const trustPoints = [
   "SEO Analytics",
 ];
 
-const dashboardMetrics = [
-  { label: "Organic Traffic", value: "\u2191 147%", icon: TrendingUp, color: "text-emerald-400" },
-  { label: "Keywords", value: "\u2191 312", icon: Search, color: "text-electric-400" },
-  { label: "Search Visibility", value: "\u2191 89%", icon: BarChart3, color: "text-purple-400" },
-  { label: "Leads", value: "\u2191 63%", icon: Target, color: "text-amber-400" },
-  { label: "Website Health", value: "95%", icon: Activity, color: "text-emerald-400" },
-];
-
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center section-padding pt-32 grid-bg overflow-hidden">
+    <section className="relative flex items-center px-4 sm:px-6 lg:px-8 py-16 pt-28 lg:pt-32 lg:py-20 grid-bg overflow-hidden">
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-electric-500/10 rounded-full blur-[128px] ambient-orb" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-[128px] ambient-orb-delayed" />
 
@@ -80,66 +73,10 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative hidden lg:block"
+            transition={{ duration: 0.8, delay: 0.25 }}
+            className="relative"
           >
-            <div className="glass-card rounded-2xl p-6 animate-float">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-3 h-3 rounded-full bg-rose-500" />
-                <div className="w-3 h-3 rounded-full bg-amber-500" />
-                <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                <span className="text-xs text-slate-500 ml-2">SEO Dashboard</span>
-              </div>
-
-              <div className="space-y-4">
-                {dashboardMetrics.map((metric, i) => (
-                  <motion.div
-                    key={metric.label}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5 + i * 0.1 }}
-                    className="flex items-center justify-between p-3 rounded-xl bg-white/[0.03] border border-white/[0.04] hover:bg-white/[0.06] transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg bg-white/5 ${metric.color}`}>
-                        <metric.icon size={18} />
-                      </div>
-                      <span className="text-sm text-slate-300">{metric.label}</span>
-                    </div>
-                    <span className={`text-sm font-bold ${metric.color}`}>
-                      {metric.value}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="mt-6 h-20 flex items-end gap-1">
-                {Array.from({ length: 24 }).map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ height: 0 }}
-                    animate={{ height: `${20 + Math.random() * 80}%` }}
-                    transition={{ delay: 0.8 + i * 0.03, duration: 0.5 }}
-                    className="flex-1 rounded-t bg-gradient-to-t from-electric-500/40 to-electric-400/80"
-                  />
-                ))}
-              </div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.2 }}
-              className="absolute -bottom-4 -left-4 glass-card rounded-xl p-4 flex items-center gap-3"
-            >
-              <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                <TrendingUp size={20} className="text-emerald-400" />
-              </div>
-              <div>
-                <div className="text-xs text-slate-500">Monthly Growth</div>
-                <div className="text-lg font-bold text-emerald-400">+147%</div>
-              </div>
-            </motion.div>
+            <ThreeDHero />
           </motion.div>
         </div>
       </div>

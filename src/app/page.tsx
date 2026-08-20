@@ -6,6 +6,7 @@ import ServicesSection from "@/components/ServicesSection";
 import FreeAuditCTA from "@/components/FreeAuditCTA";
 import HowItWorks from "@/components/HowItWorks";
 import ResultsSection from "@/components/ResultsSection";
+import ClientProofSection from "@/components/ClientProofSection";
 import CaseStudies from "@/components/CaseStudies";
 import BeforeAfter from "@/components/BeforeAfter";
 import SEOReporting from "@/components/SEOReporting";
@@ -30,6 +31,7 @@ export default function Home() {
       <FreeAuditCTA />
       <HowItWorks />
       <ResultsSection />
+      <ClientProofSection />
       <CaseStudies />
       <BeforeAfter />
       <SEOReporting />
