@@ -21,8 +21,8 @@ const dashboardMetrics = [
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center section-padding pt-32 grid-bg overflow-hidden">
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-electric-500/10 rounded-full blur-[128px]" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-[128px]" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-electric-500/10 rounded-full blur-[128px] ambient-orb" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-[128px] ambient-orb-delayed" />
 
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -38,7 +38,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric-500/10 border border-electric-500/20 text-electric-400 text-sm font-medium mb-6"
             >
               <Rocket size={16} />
-              DATA-DRIVEN SEO FOR BUSINESS GROWTH
+              RAM SEO / DATA-DRIVEN GROWTH SYSTEMS
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-[var(--font-display)] leading-tight mb-6">
@@ -52,8 +52,8 @@ export default function Hero() {
               data-driven SEO strategies.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-10">
-              <a href="#audit" className="cta-button text-base">
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <a href="#audit" className="cta-button text-base w-full sm:w-auto">
                 <span className="flex items-center gap-2">
                   Get Free SEO Audit
                   <ArrowRight size={18} />
@@ -61,7 +61,7 @@ export default function Hero() {
               </a>
               <a
                 href="#results"
-                className="inline-flex items-center gap-2 px-8 py-[14px] rounded-xl border border-white/10 text-white hover:bg-white/5 hover:border-white/20 transition-all duration-300 font-semibold"
+                className="inline-flex items-center justify-center gap-2 px-8 py-[14px] rounded-xl border border-white/10 text-white hover:bg-white/5 hover:border-white/20 transition-all duration-300 font-semibold w-full sm:w-auto"
               >
                 View Our Results
               </a>

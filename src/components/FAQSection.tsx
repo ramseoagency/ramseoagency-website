@@ -35,11 +35,15 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08 }}
-      className="border-b border-white/5"
+      className={`rounded-2xl border px-5 md:px-6 transition-colors duration-300 ${
+        isOpen
+          ? "border-electric-500/30 bg-electric-500/[0.06]"
+          : "border-white/[0.08] bg-white/[0.025] hover:border-white/[0.16] hover:bg-white/[0.045]"
+      }`}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full py-6 text-left group"
+        className="flex items-center justify-between w-full py-5 text-left group"
         aria-expanded={isOpen}
       >
         <span className="text-base md:text-lg font-semibold text-white group-hover:text-electric-400 transition-colors pr-4">
@@ -58,7 +62,7 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-slate-400 leading-relaxed pr-12">
+            <p className="pb-5 text-slate-400 leading-relaxed pr-2 md:pr-12">
               {faq.answer}
             </p>
           </motion.div>
@@ -84,7 +88,7 @@ export default function FAQSection() {
           </h2>
         </motion.div>
 
-        <div>
+        <div className="space-y-3">
           {faqs.map((faq, i) => (
             <FAQItem key={faq.question} faq={faq} index={i} />
           ))}

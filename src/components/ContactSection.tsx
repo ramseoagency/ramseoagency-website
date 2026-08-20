@@ -147,7 +147,7 @@ export default function ContactSection() {
             <div className="glow-card-inner">
               <h3 className="text-2xl font-bold text-white mb-6">Send an Inquiry</h3>
               <form onSubmit={handleFormSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Name</label>
                     <div className="relative">
@@ -234,7 +234,7 @@ export default function ContactSection() {
               <p className="text-sm text-slate-400 mb-6">Pick a convenient time between 7:30 PM and 12:00 AM (IST).</p>
               
               <form onSubmit={handleMeetingSubmit} className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Your Name</label>
                     <div className="relative">

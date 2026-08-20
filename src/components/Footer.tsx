@@ -1,4 +1,5 @@
 "use client";
+import { TrendingUp } from "lucide-react";
 
 const serviceLinks = [
   { label: "Technical SEO", href: "#" },
@@ -29,7 +30,10 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <a href="#" className="inline-block mb-4">
+            <a href="#" className="inline-flex items-center gap-3 mb-4 group">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-electric-400 to-electric-600 text-white shadow-lg shadow-electric-500/20 transition-transform duration-300 group-hover:rotate-6">
+                <TrendingUp size={18} strokeWidth={2.5} />
+              </span>
               <span className="text-2xl font-bold font-[var(--font-display)]">
                 <span className="gradient-text">RAM</span>{" "}
                 <span className="text-white">SEO</span>

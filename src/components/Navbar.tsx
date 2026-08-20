@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, TrendingUp } from "lucide-react";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -15,9 +15,15 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrolled(window.scrollY > 20);
+      setScrollProgress(scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0);
+    };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -30,13 +36,25 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
+      <div
+        className="absolute top-0 left-0 h-[2px] bg-gradient-to-r from-electric-400 via-purple-400 to-emerald-400 transition-[width] duration-150"
+        style={{ width: `${scrollProgress}%` }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <span className="text-2xl font-bold font-[var(--font-display)]">
-              <span className="gradient-text">RAM</span>{" "}
-              <span className="text-white">SEO</span>
+          <a href="#" className="flex items-center gap-3 group">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-electric-400 to-electric-600 text-white shadow-lg shadow-electric-500/20 transition-transform duration-300 group-hover:rotate-6">
+              <TrendingUp size={18} strokeWidth={2.5} />
+            </span>
+            <span className="leading-none">
+              <span className="block text-xl font-bold font-[var(--font-display)] tracking-tight">
+                <span className="gradient-text">RAM</span>{" "}
+                <span className="text-white">SEO</span>
+              </span>
+              <span className="mt-1 hidden text-[9px] font-semibold uppercase tracking-[0.22em] text-slate-500 sm:block">
+                Growth systems
+              </span>
             </span>
           </a>
 

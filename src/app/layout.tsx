@@ -15,7 +15,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "RAM SEO | Data-Driven SEO for Business Growth",
+  title: "RAM SEO | Growth Systems for Modern Businesses",
   description:
     "We help businesses improve their Google rankings, increase organic traffic and generate more qualified leads through proven, data-driven SEO strategies.",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "RAM SEO",
   ],
   openGraph: {
-    title: "RAM SEO | Data-Driven SEO for Business Growth",
+    title: "RAM SEO | Growth Systems for Modern Businesses",
     description:
       "We help businesses improve their Google rankings, increase organic traffic and generate more qualified leads.",
     type: "website",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RAM SEO | Data-Driven SEO for Business Growth",
+    title: "RAM SEO | Growth Systems for Modern Businesses",
     description:
       "Data-driven SEO strategies for measurable business growth.",
   },

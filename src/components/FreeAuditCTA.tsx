@@ -5,7 +5,11 @@ import { ArrowRight } from "lucide-react";
 export default function FreeAuditCTA() {
   return (
     <section className="py-24 px-6 relative overflow-hidden" id="audit">
-      <div className="absolute inset-0 bg-gradient-to-r from-electric-600/20 via-purple-500/20 to-electric-600/20" />
+      <motion.div
+        animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 bg-[length:220%_100%] bg-gradient-to-r from-electric-600/20 via-purple-500/20 to-electric-600/20"
+      />
       <div className="absolute inset-0 bg-navy-950/80" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-electric-500/10 rounded-full blur-[120px]" />
 
@@ -24,10 +28,10 @@ export default function FreeAuditCTA() {
             opportunities, content gaps and ways to improve your Google
             visibility.
           </p>
-          <a href="#contact" className="cta-button text-base inline-flex items-center gap-2 px-10 py-4 text-lg">
+          <a href="#contact" className="cta-button text-base inline-flex items-center gap-2 px-10 py-4 text-lg group">
             <span className="flex items-center gap-2">
               Get My Free SEO Audit
-              <ArrowRight size={20} />
+              <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
             </span>
           </a>
           <p className="mt-6 text-sm text-slate-500">
